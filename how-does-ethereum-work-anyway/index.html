@@ -1,0 +1,272 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How does Ethereum work, anyway? | leonooo13</title>
+<link rel="shortcut icon" href="https://leonooo13.github.io/favicon.ico?v=1708865847540">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://leonooo13.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="How does Ethereum work, anyway? | leonooo13 - Atom Feed" href="https://leonooo13.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="From https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway
+以太坊区块链可能是你在新闻中听说过的，无论你是否理解它是什么。最近它频频出现在新闻头条甚至登上..." />
+    <meta name="keywords" content="Cipher" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://leonooo13.github.io">
+  <img class="avatar" src="https://leonooo13.github.io/images/avatar.png?v=1708865847540" alt="">
+  </a>
+  <h1 class="site-title">
+    leonooo13
+  </h1>
+  <p class="site-description">
+    Know and then Do
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://leonooo13.github.io/forme" class="menu">
+          Forme
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/leonooo13" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              How does Ethereum work, anyway?
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-12-15
+              </span>
+              <span>
+                12 min read
+              </span>
+              
+                <a href="https://leonooo13.github.io/LEqaLSn7k/" class="post-tag">
+                  # Cipher
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>From https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway<br>
+以太坊区块链可能是你在新闻中听说过的，无论你是否理解它是什么。最近它频频出现在新闻头条甚至登上了一些重要杂志的封面，但如果你对以太坊的基础概念不够了解，阅读这些文章可能就像看天书一样。那么以太坊究竟是什么呢？本质上，它是一个公开数据库，永久记录着数字交易。重要的是，这个数据库不需要任何中央机构来维护和保护它。相反，它作为一个“无需信任”的交易系统运作——一个框架，让个人可以进行点对点的交易，而无需信任第三方或彼此。</p>
+<p>这篇文章旨在解释以太坊在技术层面上是如何运作的，而不涉及复杂的数学或看起来令人生畏的公式。即使你不是程序员，我希望你能对这项技术有一个更好的理解。如果有些部分太过技术化或难以理解，完全没关系！并不需要理解每一个细节。我建议把注意力放在理解广泛层面的事情上。</p>
+<p>这篇文章涵盖了许多黄皮书中讨论的概念。我加入了自己的解释和图表，让理解以太坊变得更容易。那些敢于接受技术挑战的人也可以阅读以太坊黄皮书。</p>
+<p>区块链的定义</p>
+<p>A blockchain是一个“具有共享状态的加密安全事务单例机器。” 这听起来挺复杂的吧？我们来分解一下。</p>
+<pre><code>• “Cryptographically secure” 意味着数字货币的创建受到了复杂的数学算法的保护，这些算法极其难以破解。可以把它想象成一种防火墙。这使得欺骗系统几乎不可能（例如创建假交易、删除交易等）。
+
+• “Transactional singleton machine” 意味着有一个单一的主要机器负责系统中所有被创建的交易。换句话说，有一个全球统一的真相，所有人都相信它。
+
+• “With shared-state” 意味着存储在这个机器上的状态是共享且对所有人开放的。
+</code></pre>
+<p>以太坊实现了这种区块链范式。<br>
+以太坊区块链的范式解释如下：<br>
+以太坊区块链本质上是一个基于交易的状态机。在计算机科学中，状态机指的是会读取一系列输入，并根据这些输入转换到新状态的东西。</p>
+<p>在以太坊的状态机中，我们从“创世状态（genesis state）”开始。这类似于一块空白的板，表示在网络上发生任何交易之前的状态。当执行交易时，这个创世状态会转变为某个最终状态。在任何时间点，这个最终状态代表着以太坊的当前状态。</p>
+<p>以太坊的状态包含了数百万笔交易。这些交易被分组成“区块（blocks）”。一个区块包含了一系列的交易，每个区块都与其前一个区块链接在一起，形成了一个链条。</p>
+<p>在以太坊中，要使一个状态转变为下一个状态，必须经过一个交易的验证过程。为了让一个交易被视为有效，它必须经过被称为挖矿的验证过程。挖矿是指一组节点（即计算机）耗费计算资源来创建一组有效交易的区块。</p>
+<p>网络中任何自称为矿工的节点都可以尝试创建和验证一个区块。来自世界各地的许多矿工会尝试同时创建和验证区块。每个矿工在向区块链提交一个区块时都提供了一个数学“证明”，这个证明就像一个保证：如果证明存在，那么这个区块必须是有效的。</p>
+<p>要将一个区块添加到主区块链中，矿工必须比任何其他竞争者矿工更快地完成验证。通过让矿工提供数学证明来验证每个区块的过程被称为“工作证明”。</p>
+<p>验证了新区块的矿工会因完成这项工作而获得一定数量的价值奖励。这个价值是什么？以太坊区块链使用了一种内在的数字代币，称为“以太币（Ether）”。每当一个矿工验证一个区块，就会生成并奖励新的以太币代币。</p>
+<p>你可能会想：是什么保证了所有人都遵循一条链？我们如何确保不存在一部分矿工决定创建自己的链？</p>
+<p>早些时候，我们定义了区块链为一个具有共享状态的加密安全事务单例机器。利用这个定义，我们可以理解正确的当前状态是一个单一的全球真相，每个人都必须接受。拥有多个状态（或链）会破坏整个系统，因为我们无法达成对哪个状态是正确的一致意见。如果链出现分叉，你可能在一个链上拥有10个代币，在另一个链上拥有20个，在另一个链上拥有40个。在这种情况下，没有办法确定哪条链是最“有效”的。</p>
+<p>每当生成多条路径时，就会出现“分叉”。我们通常希望避免分叉，因为它们会破坏系统，并迫使人们选择他们“信任”的链。</p>
+<p>对于确定哪条路径最有效并防止多条链的出现，以太坊使用了一种机制，称为“GHOST协议”（Greedy Heaviest</p>
+<p>Observed Subtree protocol）&quot;贪婪地选择最重的观察子树&quot;</p>
+<p>简单来说，GHOST协议表明我们必须选择经过最多计算的路径。确定这条路径的一种方法是使用最近区块（即“叶子区块”）的区块编号，该编号代表了当前路径中的总区块数（不包括创世区块）。区块编号越高，路径越长，到达该叶子区块所需的挖矿工作量就越大。利用这种推理方式，我们可以就当前状态的规范版本达成一致。</p>
+<p>现在你已经大致了解了区块链的概况，让我们深入了解以太坊系统的主要组成部分：</p>
+<pre><code>• 账户
+• 状态
+• Gas和费用
+• 交易
+• 区块
+• 交易执行
+• 挖矿
+• 工作证明
+</code></pre>
+<p>在开始之前，有一点需要说明：每当我提到“X的哈希”时，我指的是以太坊所使用的KECCAK-256哈希算法。</p>
+<p>账户<br>
+以太坊的全局“共享状态”由许多小对象（“账户”）组成，这些账户可以通过消息传递框架相互交互。每个账户都有与之相关联的状态和一个20字节的地址。在以太坊中，地址是一个160位的标识符，用于识别任何账户。</p>
+<p>有两种类型的账户：</p>
+<ol>
+<li>外部拥有的账户，由私钥控制，与之没有相关联的代码。</li>
+<li>合约账户，由其合约代码控制，并与之相关联的代码。</li>
+</ol>
+<p>外部拥有的账户与合同户</p>
+<p>外部拥有的账户与合约账户之间的一个基本区别很重要。一个外部拥有的账户可以通过使用其私钥创建和签署交易，向其他外部拥有的账户或其他合约账户发送消息。两个外部拥有的账户之间的消息仅仅是价值的传递。但是，从外部拥有的账户发送到合约账户的消息会激活合约账户的代码，使其能够执行各种操作（例如转移代币、写入内部存储、铸造新代币、执行一些计算、创建新合约等）。</p>
+<p>不同于外部拥有的账户，合约账户不能自行发起新的交易。相反，合约账户只能对接收到的其他交易（来自外部拥有的账户或另一个合约账户）做出响应并触发交易。我们将在“交易与消息”部分更多地了解合约对合约的调用。</p>
+<p>因此，以太坊区块链上发生的任何操作总是由外部控制账户触发的交易启动。</p>
+<p>账户</p>
+<p>账户状态由四个组件组成，无论账户类型如何都存在：</p>
+<pre><code>• nonce：如果账户是外部拥有的账户，该数字代表从该账户地址发送的交易数量。如果账户是合约账户，则nonce是该账户创建的合约数量。
+• balance：该地址拥有的Wei数量。每个以太有1e+18 Wei。
+• storageRoot：Merkle Patricia树根节点的哈希（稍后我们会解释Merkle树）。该树编码了该账户存储内容的哈希，默认为空。
+• codeHash：该账户的以太虚拟机（EVM）代码的哈希（稍后详细介绍）。对于合约账户，这是要进行哈希处理并存储为codeHash的代码。对于外部拥有的账户，codeHash字段是空字符串的哈希。
+</code></pre>
+<p>世界状态<br>
+好的，我们知道以太坊的全局状态包括账户地址与账户状态之间的映射关系。这个映射关系存储在一个称为Merkle Patricia树的数据结构中。<br>
+Merkle树（也称为“Merkle trie”）是一种二叉树，由一组节点组成：</p>
+<ul>
+<li>在树底部有大量的叶子节点，包含底层数据。</li>
+<li>一组中间节点，每个节点都是其两个子节点的哈希值。</li>
+<li>一个根节点，也是由其两个子节点的哈希值组成，代表着树的顶部。</li>
+</ul>
+<p>树底部的数据是通过将要存储的数据分割成块，然后将这些块分割成桶，接着对每个桶进行哈希处理，并重复这个过程，直到剩余的哈希值数量减少到只有一个：根哈希 Root Hash。</p>
+<p>这棵树需要为其中存储的每个值都有一个键。从树的根节点开始，键应该告诉你应该跟随哪个子节点以获取对应的值，这些值存储在叶子节点中。在以太坊的情况下，状态树的键/值映射是账户地址和其关联账户之间的映射，包括每个账户的余额、nonce、codeHash和storageRoot（其中storageRoot本身也是一棵树）。</p>
+<p>同样的trie结构也用于存储交易和收据。更具体地说，每个区块都有一个“头部”，其中存储了三个不同Merkle trie结构的根节点的哈希，包括：</p>
+<ul>
+<li>状态trie</li>
+<li>交易trie</li>
+<li>收据trie</li>
+</ul>
+<p>在以太坊中，能够高效地在Merkle trie中存储所有这些信息对于我们所谓的“轻客户端”或“轻节点”非常有用。请记住，区块链是由一群节点维护的。大致来说，有两种类型的节点：完整节点和轻节点。</p>
+<p>一个完整的存档节点通过下载完整的链，从创世块到当前头块，并执行其中包含的所有交易来同步区块链。通常，矿工存储完整的存档节点，因为他们需要在挖矿过程中使用。也有可能下载一个完整节点但不执行每个交易。但无论如何，任何完整节点都包含了整个链。</p>
+<p>但是，除非一个节点需要执行每个交易或轻松查询历史数据，否则没有必要存储整个链。这就是轻节点的概念。轻节点不下载和存储整个链，也不执行所有交易，而是仅下载链的头部，从创世块到当前头部，并不执行任何交易或检索任何关联状态。由于轻节点可以访问区块头，区块头包含了三个Merkle trie的哈希值，因此它们仍然可以轻松生成和接收关于交易、事件、余额等的可验证答案。</p>
+<p>这种方法有效的原因在于Merkle树中的哈希向上传播——如果一个恶意用户试图将伪造的交易插入到Merkle树的底部，这种更改将导致上面节点的哈希值变化，进而影响到更高层级节点的哈希值，直到最终改变整棵树的根哈希。</p>
+<p>任何想要验证某个数据的节点都可以使用称为“Merkle证明”的东西来进行验证。Merkle证明包括以下内容：<br>
+1. 要进行验证的数据块及其哈希值<br>
+2. 树的根哈希<br>
+3. “分支”（从数据块到根部沿着路径的所有伙伴哈希）</p>
+<p>任何读取证明的人都可以验证，沿着这个分支的哈希计算一直都是一致的，因此给定的数据块实际上位于树的这个位置。</p>
+<p>总结一下，使用Merkle Patricia树的好处在于，这个结构的根节点是基于树中存储的数据进行加密的，因此根节点的哈希可以作为这些数据的安全标识。由于区块头包含了状态、交易和收据树的根哈希，任何节点都可以验证以太坊状态的一小部分，而无需存储整个状态，而这个整个状态可能会非常大。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'bec34219412085f4c538',
+    clientSecret: 'e34c9e2654e834da0c22e1d40d635abf866c6670',
+    repo: 'Talk',
+    owner: 'leonooo13',
+    admin: ['leonooo13'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  <a> 😘</a>
+  <a class="rss" href="https://leonooo13.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

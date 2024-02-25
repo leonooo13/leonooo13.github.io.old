@@ -1,0 +1,232 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pre_replace | leonooo13</title>
+<link rel="shortcut icon" href="https://leonooo13.github.io/favicon.ico?v=1708865847540">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://leonooo13.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Pre_replace | leonooo13 - Atom Feed" href="https://leonooo13.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="function complex($re, $str) {
+    return preg_replace(
+        '/(' . $re . ')/ei',
+        'strtolower(&quot;\\1&quot;)..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://leonooo13.github.io">
+  <img class="avatar" src="https://leonooo13.github.io/images/avatar.png?v=1708865847540" alt="">
+  </a>
+  <h1 class="site-title">
+    leonooo13
+  </h1>
+  <p class="site-description">
+    Know and then Do
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://leonooo13.github.io/forme" class="menu">
+          Forme
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/leonooo13" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Pre_replace
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-12-29
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <pre><code class="language-php">function complex($re, $str) {
+    return preg_replace(
+        '/(' . $re . ')/ei',
+        'strtolower(&quot;\\1&quot;)',
+        $str
+    );
+}
+</code></pre>
+<p>这是一个名为 <code>complex()</code> 的函数，它使用正则表达式替换来处理字符串。</p>
+<p>这个函数接受两个参数：</p>
+<ul>
+<li><code>$re</code>：表示正则表达式的模式。</li>
+<li><code>$str</code>：表示要进行替换操作的字符串。</li>
+</ul>
+<p>函数使用 <code>preg_replace()</code> 函数来执行替换操作。在替换过程中，使用了 <code>e</code> 修饰符，它允许将替换操作视为可执行的代码。</p>
+<p>具体而言，在给定的字符串 <code>$str</code> 中，所有匹配正则表达式 <code>$re</code> 的部分都会被替换为对 <code>strtolower(&quot;\\1&quot;)</code> 的调用。其中 <code>\\1</code> 表示捕获到的匹配结果，并将其转换为小写字母。</p>
+<p>需要注意的是，使用 <code>e</code> 修饰符在较新版本的 PHP 中已经被弃用，并且在更高的安全级别下可能会导致安全风险。建议使用其他方式来执行替换操作，例如使用匿名函数或者先把字符串进行拆分和处理，然后再进行替换。</p>
+<p>以下是一个改进的版本，使用匿名函数来执行替换操作：</p>
+<pre><code class="language-php">function complex($re, $str) {
+    return preg_replace_callback(
+        '/' . $re . '/',
+        function ($matches) {
+            return strtolower($matches[0]);
+        },
+        $str
+    );
+}
+</code></pre>
+<p>在这个改进的版本中，我们使用 <code>preg_replace_callback()</code> 函数，它接受一个匿名函数作为替换操作的回调函数。在匿名函数中，我们直接将匹配到的内容转换为小写字母，并返回替换后的结果。</p>
+<p>这种改进的方式更加安全且不依赖于 <code>eval</code> 执行代码。</p>
+<p>e模式下的preg_replace可以让第二个参数'替换字符串'当作代码执行，但是这里第二个参数是不可变的，但因为有这种特殊的情况，正则表达式模式或部分模式两边添加圆括号会将相关匹配存储到一个临时缓存区，并且从1开始排序，而strtolower(&quot;\1&quot;)正好表达的就是匹配区的第一个（\1=\1），从而我们如果匹配可以，则可以将函数实现。<br>
+比如我们传入  <code>?.*={${phpinfo()}}</code></p>
+<p>原句：<code>preg_replace('/(' . $re . ')/ei','strtolower(&quot;\\1&quot;)',$str);</code> 就变成<code>preg_replace('/(' .* ')/ei','strtolower(&quot;\\1&quot;)',{${phpinfo()}});</code></p>
+<p>又因为$_GET传入首字母是非法字符时候会把   .（点号）改成下划线，因此得将.<em>换成\s</em></p>
+<p><code>\S*=${getFlag()}&amp;cmd=system('ls /');</code></p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://leonooo13.github.io/hi/">
+              <h3 class="post-title">
+                HI Happy NewYear
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'bec34219412085f4c538',
+    clientSecret: 'e34c9e2654e834da0c22e1d40d635abf866c6670',
+    repo: 'Talk',
+    owner: 'leonooo13',
+    admin: ['leonooo13'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  <a> 😘</a>
+  <a class="rss" href="https://leonooo13.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

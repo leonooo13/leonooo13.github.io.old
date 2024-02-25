@@ -1,0 +1,235 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OWASP TOP 10 | leonooo13</title>
+<link rel="shortcut icon" href="https://leonooo13.github.io/favicon.ico?v=1708865847540">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://leonooo13.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="OWASP TOP 10 | leonooo13 - Atom Feed" href="https://leonooo13.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+Web TOP 10 漏洞
+1.注入漏洞
+注入漏洞因其普遍性和严重性一直居于漏洞排行榜的第一位，常见的注入有：SQL，LDAP，OS命令，ORM和OGNL。用户可以通过任何可输入的点输入构造的恶意代码，若应用程序对用户的输入过滤不严，一旦..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://leonooo13.github.io">
+  <img class="avatar" src="https://leonooo13.github.io/images/avatar.png?v=1708865847540" alt="">
+  </a>
+  <h1 class="site-title">
+    leonooo13
+  </h1>
+  <p class="site-description">
+    Know and then Do
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://leonooo13.github.io/forme" class="menu">
+          Forme
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/leonooo13" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              OWASP TOP 10
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-12-16
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <figure data-type="image" tabindex="1"><img src="https://leonooo13.github.io/post-images/1702664677380.png" alt="" loading="lazy"></figure>
+<p>Web TOP 10 漏洞<br>
+1.注入漏洞<br>
+注入漏洞因其普遍性和严重性一直居于漏洞排行榜的第一位，常见的注入有：SQL，LDAP，OS命令，ORM和OGNL。用户可以通过任何可输入的点输入构造的恶意代码，若应用程序对用户的输入过滤不严，一旦将输入的恶意代码作为命令或查询的一部分发送到解析器，则可能会导致注入漏洞的产生。<br>
+以SQL注入为例，它是由于攻击者通过浏览器或者其他客户端将恶意的SQL语句插入网站参数中，而网站应用程序未经过滤，直接将恶意SQL语句带入数据库进行执行，最后导致可以通过数据库获取敏感的信息或者执行其他恶意操作。<br>
+2.跨站脚本(XSS)漏洞<br>
+XSS漏洞全称是跨站脚本漏洞，为了不和层叠样式表(Cascading Style Sheets,CSS)的缩写混淆，故将跨站脚本漏洞缩写为XSS。XSS漏洞是一种在Web应用中常见的安全漏洞，它允许用户将恶意代码植入Web页面中，当其他用户访问此页面时，植入的恶意脚本就会在其他的用户客户端中执行。<br>
+XSS漏洞的危害很多，可以通过XSS漏洞获取客户端用户的信息，比如用户登录的Cookie信息，可以通过XSS蠕虫进行信息传播；可以在客户端中植入木马；可以结合其他漏洞攻击服务器，在服务器中植入木马等。<br>
+3.文件上传漏洞<br>
+文件上传漏洞发生在有上传功能的应用中，如果应用程序对用户的上传文件没有控制或者存在缺陷，攻击者可以利用应用上传功能存在的缺陷，上传木马和病毒等有危害性的文件到服务器，进而控制服务器。<br>
+文件上传漏洞产生的主要原因是：应用中存在上传功能，但是上传的文件没有经过严格的合法性检验或者检验函数存在缺陷，导致可以上传木马文件到服务器。<br>
+文件上传漏洞危害极大，因为可以直接上传恶意代码到服务器上，可能会造成服务器的网页篡改，网站被挂马，服务器被远程控制和被安装后门等严重后果。<br>
+文件上传漏洞主要是通过前端JS绕过，文件名绕过和Content-Type绕过等几种方式进行恶意代码上传。<br>
+4.文件包含漏洞<br>
+文件包含函数包含的文件参数没有经过过滤或者严格的定义，并且参数可以被用户控制，就可能包含非预期的文件。如果文件中含有恶意代码，无论文件是什么样的后缀类型，文件内的恶意代码都会被解析执行，就导致了文件包含漏洞的产生。<br>
+文件包含漏洞可能会造成服务器的网页篡改，网站挂马，远程控制服务器，安装后门等危害。<br>
+5.命令执行漏洞<br>
+应用程序的某些功能需要调用可以执行系统命令的函数，如果这些函数或者函数的参数能被用户控制，就可能通过命令连接符将恶意命令拼接到正常的函数中，从而随意执行系统命令，这就是命令执行漏洞，它属于高危漏洞之一。<br>
+6.代码执行漏洞<br>
+应用程序中提供了一些可以将字符串作为代码执行的函数，比如PHP中的eval()函数，可以将函数中的参数当作PHP代码来执行，如果这些函数的参数控制不严格，可能会被利用，造成任意代码执行。<br>
+7.XML外部实体(XXE)漏洞<br>
+XML外部实体(XML,External Entity,XXE)漏洞产生的原因是应用程序解析XML时，没有过滤外部实体的加载，导致加载了恶意的外部文件，造成命令执行，文件读取，内网扫描，内网应用攻击等危害。<br>
+8.反序列化漏洞<br>
+为了有效的存储或传递数据，同时不丢失其类型和结构，经常需要序列化和反序列化的函数对数据进行处理。<br>
+序列化：返回字符串，此字符串包含了表示value的字节流，可以存储于任何地方。<br>
+反序列化：对单一的已序列化的变量进行操作，将其转换回原来的值。<br>
+这两个过程结合起来，可以轻松地存储和传输数据，使程序更具维护性，但是不安全的反序列化会导致远程代码执行。即使反序列化缺陷不会导致远程代码执行，攻击者也可以利用它们来执行攻击，包括重播攻击，注入攻击和特权升级攻击。<br>
+9.SSRF漏洞<br>
+服务端请求伪造(Server-Side Request Forge,SSRF)漏洞，攻击者利用SSRF漏洞通过服务器发起伪造请求，这样就可以访问内网的数据，进行内网信息探测或者内网漏洞利用。<br>
+SSRF漏洞形成的原因是应用程序存在可以从其他服务器获取数据的功能，但是服务器的地址并没有做严格的过滤，导致应用程序可以访问任意的URL链接，攻击者通过精心构造URL链接，可以利用SSRF漏洞进行以下攻击：<br>
+可以通过服务器获取内网主机，端口和Banner信息<br>
+对内网的应用程序进行攻击，如Redis，Jboss等<br>
+利用file协议读取文件<br>
+可以攻击内网程序并造成溢出<br>
+10.解析漏洞<br>
+Web容器解析漏洞会将其他类型的文件都当做该脚本语言的文件进行解析，执行里面的代码。Web容器解析漏洞产生的原因是web容器存在漏洞，导致在解析恶意构造的文件时，无论此文件是什么类型的文件，都会执行里面的代码。<br>
+Web容器解析器漏洞的危害极大，会造成服务器被远程控制，网页篡改，网站挂马，植入木马等危害。<br>
+一般解析漏洞都是配合文件上传的功能进行利用，常见的Web容器有IIS,Nginx,Apache,Tomcat和Lighttpd等。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://leonooo13.github.io/how-does-ethereum-work-anyway/">
+              <h3 class="post-title">
+                How does Ethereum work, anyway?
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'bec34219412085f4c538',
+    clientSecret: 'e34c9e2654e834da0c22e1d40d635abf866c6670',
+    repo: 'Talk',
+    owner: 'leonooo13',
+    admin: ['leonooo13'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  <a> 😘</a>
+  <a class="rss" href="https://leonooo13.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

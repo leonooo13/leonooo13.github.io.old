@@ -1,0 +1,237 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vscode Debug  PHP | leonooo13</title>
+<link rel="shortcut icon" href="https://leonooo13.github.io/favicon.ico?v=1708865847540">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://leonooo13.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Vscode Debug  PHP | leonooo13 - Atom Feed" href="https://leonooo13.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="欲卖桂花酒，终不似，少年游
+1. 环境搭建
+本地审计
+Windows11
+VSCode
+phpStudy
+
+xdebug.profiler_output_dir=&quot;D:\phpStudy\PHPTutorial\tmp\xdebu..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://leonooo13.github.io">
+  <img class="avatar" src="https://leonooo13.github.io/images/avatar.png?v=1708865847540" alt="">
+  </a>
+  <h1 class="site-title">
+    leonooo13
+  </h1>
+  <p class="site-description">
+    Know and then Do
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://leonooo13.github.io/forme" class="menu">
+          Forme
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/leonooo13" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Vscode Debug  PHP
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-12-19
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>欲卖桂花酒，终不似，少年游</p>
+<pre><code>1. 环境搭建
+本地审计
+Windows11
+VSCode
+phpStudy
+</code></pre>
+<p>xdebug.profiler_output_dir=&quot;D:\phpStudy\PHPTutorial\tmp\xdebug&quot;<br>
+xdebug.trace_output_dir=&quot;D:\phpStudy\PHPTutorial\tmp\xdebug&quot;<br>
+zend_extension=&quot;D:\phpStudy\PHPTutorial\php\php-7.0.12-nts\ext\php_xdebug.dll&quot; //replace it with current phpdebug version<br>
+xdebug.remote_enable=1<br>
+xdebug.remote_host=localhost<br>
+xdebug.remote_port=9000<br>
+xdebug.remote_autostart = 1<br>
+xdebug.profiler_enable = 1<br>
+xdebug.remote_timeout=2000</p>
+<p>保存后 重启</p>
+<p>查看phpinfo</p>
+<p>说明debug mode开启了</p>
+<p>用Vscode打开<br>
+下载debug</p>
+<p>创建<br>
+launch.json<br>
+// Hover to view descriptions of existing attributes.<br>
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387<br>
+&quot;version&quot;: &quot;0.2.0&quot;,<br>
+&quot;configurations&quot;: [<br>
+{<br>
+&quot;name&quot;: &quot;Listen for Xdebug&quot;,<br>
+&quot;type&quot;: &quot;php&quot;,<br>
+&quot;request&quot;: &quot;launch&quot;,<br>
+&quot;port&quot;: 9000<br>
+},<br>
+{</p>
+<p>就可以code review</p>
+<p>图片存在onenote中复制不出来就这样吧，就像人生，你想做的，总是会有奇奇怪怪的问题。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://leonooo13.github.io/zhong-jian-jian-de-jie-xi-lou-dong-xiang-jie-ji-yan-shi/">
+              <h3 class="post-title">
+                中间件的解析漏洞详解及演示
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'bec34219412085f4c538',
+    clientSecret: 'e34c9e2654e834da0c22e1d40d635abf866c6670',
+    repo: 'Talk',
+    owner: 'leonooo13',
+    admin: ['leonooo13'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  <a> 😘</a>
+  <a class="rss" href="https://leonooo13.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
